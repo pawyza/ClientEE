@@ -58,6 +58,5 @@ public class AddClientController implements Initializable {
 
     @FXML
     void recordOnAction(ActionEvent event) {
-        
     }
 }

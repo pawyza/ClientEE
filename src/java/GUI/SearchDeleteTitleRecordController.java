@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -109,12 +111,63 @@ public class SearchDeleteTitleRecordController implements Initializable {
     
         @FXML
     void PersistTitleRecord(ActionEvent event) {
-
+        try {
+            Main.getFacade().persistTitleRecordsDB();
+        } catch (Exception ex) {
+            Logger.getLogger(SearchDeleteTitleRecordController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void ShowDBTitlteRecord(ActionEvent event) {
+        try {
+            List<String[]> helper = Main.getFacade().showTitleRecordsDB();
+            List<TitleRecordM> listHelper = new ArrayList();
 
+            for (String[] t : helper) {
+                System.out.println(t[0]);
+                System.out.println(t[1]);
+                System.out.println(t[2]);
+                System.out.println(t[3]);
+                System.out.println(t[4]);
+                listHelper.add(new TitleRecordM(t[0], t[1], t[2], t[3], t[4]));
+            }
+            ObservableList<TitleRecordM> list = FXCollections.observableArrayList(listHelper);
+
+            TableColumn idCol = new TableColumn("ID");
+            TableColumn titleCol = new TableColumn("Title");
+            TableColumn authorCol = new TableColumn("Author");
+            TableColumn castCol = new TableColumn("Cast");
+            TableColumn genreCol = new TableColumn("Genre");
+
+            idCol.prefWidthProperty().bind(TitleRecordTable.widthProperty().multiply(0.10));
+            titleCol.prefWidthProperty().bind(TitleRecordTable.widthProperty().multiply(0.25));
+            authorCol.prefWidthProperty().bind(TitleRecordTable.widthProperty().multiply(0.20));
+            castCol.prefWidthProperty().bind(TitleRecordTable.widthProperty().multiply(0.25));
+            genreCol.prefWidthProperty().bind(TitleRecordTable.widthProperty().multiply(0.20));
+
+            idCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("id")
+            );
+            titleCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("title")
+            );
+            authorCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("author")
+            );
+            castCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("cast")
+            );
+            genreCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("genre")
+            );
+
+            TitleRecordTable.setItems(list);
+            TitleRecordTable.getColumns().addAll(idCol, titleCol, authorCol, castCol, genreCol);
+
+        } catch (Exception ex) {
+            Logger.getLogger(SearchDeleteTitleRecordController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

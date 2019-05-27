@@ -715,6 +715,16 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         </macrodef>
     </target>
     <target name="-init-taskdefs">
+        <fail unless="libs.CopyLibs.classpath">
+The libs.CopyLibs.classpath property is not set up.
+This property must point to 
+org-netbeans-modules-java-j2seproject-copylibstask.jar file which is part
+of NetBeans IDE installation and is usually located at 
+&lt;netbeans_installation&gt;/java&lt;version&gt;/ant/extra folder.
+Either open the project in the IDE and make sure CopyLibs library
+exists or setup the property manually. For example like this:
+ ant -Dlibs.CopyLibs.classpath=a/path/to/org-netbeans-modules-java-j2seproject-copylibstask.jar
+                </fail>
         <taskdef classpath="${libs.CopyLibs.classpath}" resource="org/netbeans/modules/java/j2seproject/copylibstask/antlib.xml"/>
     </target>
     <target name="-init-ap-cmdline-properties">
@@ -760,14 +770,14 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         </fail>
     </target>
     <target depends="init" if="no.dist.ear.dir" name="-deps-module-jar" unless="no.deps">
-        <ant antfile="${project.RentalEE-ejb}/build.xml" inheritall="false" target="dist"/>
-        <ant antfile="${project.RentalInterface-1}/build.xml" inheritall="false" target="jar"/>
+       
+        <ant antfile="${project.RentalInterface}/build.xml" inheritall="false" target="jar"/>
     </target>
     <target depends="init" if="dist.ear.dir" name="-deps-ear-jar" unless="no.deps">
         <ant antfile="${project.RentalEE-ejb}/build.xml" inheritall="false" target="dist-ear">
             <property location="${build.dir}" name="dist.ear.dir"/>
         </ant>
-        <ant antfile="${project.RentalInterface-1}/build.xml" inheritall="false" target="jar"/>
+        <ant antfile="${project.RentalInterface}/build.xml" inheritall="false" target="jar"/>
     </target>
     <target depends="init, -check-main-class, -deps-module-jar, -deps-ear-jar" name="deps-jar"/>
     <target depends="init,deps-jar" name="-pre-pre-compile">
@@ -778,22 +788,22 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target depends="compile" if="is.server.weblogic" name="library-inclusion-in-archive">
-        <basename file="${reference.RentalInterface-1.jar}" property="manifest.reference.RentalInterface-1.jar"/>
-        <basename file="${file.reference.jfoenix-8.0.8.jar-1}" property="manifest.file.reference.jfoenix-8.0.8.jar-1"/>
         <basename file="${reference.RentalEE-ejb.dist}" property="manifest.reference.RentalEE-ejb.dist"/>
+        <basename file="${reference.RentalInterface.jar}" property="manifest.reference.RentalInterface.jar"/>
+        <basename file="${file.reference.jfoenix-8.0.8.jar}" property="manifest.file.reference.jfoenix-8.0.8.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
             <attribute name="Extension-List" value="jar-1 jar-2 jar-3 "/>
-            <attribute name="jar-1-Extension-Name" value="${manifest.reference.RentalInterface-1.jar}"/>
-            <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.jfoenix-8.0.8.jar-1}"/>
-            <attribute name="jar-3-Extension-Name" value="${manifest.reference.RentalEE-ejb.dist}"/>
+            <attribute name="jar-1-Extension-Name" value="${manifest.reference.RentalEE-ejb.dist}"/>
+            <attribute name="jar-2-Extension-Name" value="${manifest.reference.RentalInterface.jar}"/>
+            <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.jfoenix-8.0.8.jar}"/>
         </manifest>
     </target>
     <target depends="compile" if="dist.ear.dir" name="library-inclusion-in-manifest">
-        <copyfiles files="${reference.RentalInterface-1.jar}" manifestproperty="manifest.reference.RentalInterface-1.jar" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.jfoenix-8.0.8.jar-1}" manifestproperty="manifest.file.reference.jfoenix-8.0.8.jar-1" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${reference.RentalEE-ejb.dist}" manifestproperty="manifest.reference.RentalEE-ejb.dist" todir="${dist.ear.dir}"/>
+        <copyfiles files="${reference.RentalInterface.jar}" manifestproperty="manifest.reference.RentalInterface.jar" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jfoenix-8.0.8.jar}" manifestproperty="manifest.file.reference.jfoenix-8.0.8.jar" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${manifest.reference.RentalInterface-1.jar} lib/${manifest.reference.RentalInterface-1.jar} ${manifest.file.reference.jfoenix-8.0.8.jar-1} lib/${manifest.file.reference.jfoenix-8.0.8.jar-1} ${manifest.reference.RentalEE-ejb.dist} "/>
+            <attribute name="Class-Path" value="${manifest.reference.RentalEE-ejb.dist} ${manifest.reference.RentalInterface.jar} lib/${manifest.reference.RentalInterface.jar} ${manifest.file.reference.jfoenix-8.0.8.jar} lib/${manifest.file.reference.jfoenix-8.0.8.jar} "/>
         </manifest>
     </target>
     <target name="-copy-meta-inf">
@@ -1298,10 +1308,11 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
             -->
     <target depends="init" name="deps-clean" unless="no.deps">
         <ant antfile="${project.RentalEE-ejb}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.RentalInterface-1}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.RentalInterface}/build.xml" inheritall="false" target="clean"/>
     </target>
     <target depends="init" name="-do-clean">
         <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
     </target>
     <target name="-post-clean">
         <!-- Empty placeholder for easier customization. -->

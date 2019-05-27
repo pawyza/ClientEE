@@ -11,9 +11,9 @@
             <test-roots>
                 <root id="test.src.dir"/>
             </test-roots>
+            <included-library dirs="200">reference.RentalInterface-1.jar</included-library>
+            <included-library dirs="200">file.reference.jfoenix-8.0.8.jar-1</included-library>
             <included-library dirs="100">reference.RentalEE-ejb.dist</included-library>
-            <included-library dirs="200">reference.RentalInterface.jar</included-library>
-            <included-library dirs="200">file.reference.jfoenix-8.0.8.jar</included-library>
         </data>
         <references xmlns="http://www.netbeans.org/ns/ant-project-references/1">
             <reference>
@@ -25,7 +25,7 @@
                 <id>dist</id>
             </reference>
             <reference>
-                <foreign-project>RentalInterface</foreign-project>
+                <foreign-project>RentalInterface-1</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -95,12 +97,52 @@ public class SearchDeleteClients implements  Initializable {
 
         @FXML
     void PersistClient(ActionEvent event) {
-
+        try {
+            Main.getFacade().persistClientsDB();
+        } catch (Exception ex) {
+            Logger.getLogger(SearchDeleteClients.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     void ShowDB(ActionEvent event) {
+        try {
+            List<String[]> helper = Main.getFacade().showClientsDB();
+            List<ClientM> listHelper = new ArrayList();
+            for (String[] t : helper) {
+                listHelper.add(new ClientM(t[0],t[1],Integer.valueOf(t[2]),t[3]));
+            }
 
+            ObservableList<ClientM> list = FXCollections.observableArrayList(listHelper);
+
+            ClientsTable.setItems(list);
+
+            TableColumn ncCol = new TableColumn("Number Card");
+            TableColumn loginCol = new TableColumn("Login");
+            TableColumn numberCol = new TableColumn("Number");
+
+
+            ncCol.prefWidthProperty().bind(ClientsTable.widthProperty().multiply(0.50));
+            loginCol.prefWidthProperty().bind(ClientsTable.widthProperty().multiply(0.25));
+            numberCol.prefWidthProperty().bind(ClientsTable.widthProperty().multiply(0.25));
+
+
+            ncCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("numberCard")
+            );
+            loginCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("login")
+            );
+            numberCol.setCellValueFactory(
+                    new PropertyValueFactory<Object, String>("number")
+            );
+
+
+
+            ClientsTable.getColumns().addAll(numberCol,loginCol, ncCol);
+        } catch (Exception ex) {
+            Logger.getLogger(SearchDeleteClients.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
