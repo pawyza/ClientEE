@@ -139,7 +139,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
 
     @FXML
     void btn_searchDeleteTitleRecord_onAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AddReservationController.class.getResource("SearchDeleteTitleRecord.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SearchDeleteTitleRecordController.class.getResource("SearchDeleteTitleRecord.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -153,7 +153,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
 
     @FXML
     void btn_searchDeleteClient_onAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AddReservationController.class.getResource("SearchDeleteClients.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SearchDeleteClients.class.getResource("SearchDeleteClients.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -165,7 +165,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
 
     @FXML
     void btn_searchDeleteRecord_onAction(ActionEvent event) throws IOException {
-       FXMLLoader fxmlLoader = new FXMLLoader(AddReservationController.class.getResource("SearchDeleteRecord.fxml"));
+       FXMLLoader fxmlLoader = new FXMLLoader(SearchDeleteRecordController.class.getResource("SearchDeleteRecord.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -178,7 +178,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
 
     @FXML
     void btn_searchDeleteReservation_onAction(ActionEvent event) throws IOException {
-      FXMLLoader fxmlLoader = new FXMLLoader(AddReservationController.class.getResource("SearchDeleteReservation.fxml"));
+      FXMLLoader fxmlLoader = new FXMLLoader(SearchDeleteReservationController.class.getResource("SearchDeleteReservation.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

@@ -84,7 +84,7 @@ public class SearchDeleteTitleRecordController implements Initializable {
     @FXML
     void deleteButton(ActionEvent event) {
         int selIndex = TitleRecordTable.getSelectionModel().getSelectedIndex();
-        Main.getFacade().deleteTitleRecord(Main.getFacade().transformTitleRecordIndexToString(selIndex));
+        Main.getFacade().deleteTitleRecord(Main.getFacade().transformTitleRecordIndexToNumber(selIndex));
 
         List<String[]> helper = Main.getFacade().getTitleRecordStrings();
         List<TitleRecordM> listHelper = new ArrayList();
