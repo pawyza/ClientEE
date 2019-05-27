@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -66,6 +67,11 @@ public class SearchDeleteClients implements  Initializable {
     @FXML
     private JFXButton backButton;
 
+    @FXML
+    private JFXButton persistBtn;
+
+    @FXML
+    private JFXButton showDBBtn;
     
 
     @FXML
@@ -87,6 +93,14 @@ public class SearchDeleteClients implements  Initializable {
         OptionsController.recordStage.close();
     }
 
-    
+        @FXML
+    void PersistClient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ShowDB(ActionEvent event) {
+
+    }
 
 }

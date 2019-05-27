@@ -83,6 +83,12 @@ public class SearchDeleteReservationController implements Initializable {
     @FXML
     private JFXButton backButton;
 
+        @FXML
+    private JFXButton persistReservationBtn;
+
+    @FXML
+    private JFXButton showDBReservationBTN;
+    
     @FXML
     void deleteButton(ActionEvent event) {
         int selIndex = ReservationTable.getSelectionModel().getSelectedIndex();
@@ -100,6 +106,15 @@ public class SearchDeleteReservationController implements Initializable {
     @FXML
     void backButton(ActionEvent event) {
         OptionsController.recordStage.close();
+    }
+    @FXML
+    void PersistReservation(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ShowDBReservation(ActionEvent event) {
+
     }
 
 }

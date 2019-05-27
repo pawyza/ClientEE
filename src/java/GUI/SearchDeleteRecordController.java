@@ -68,6 +68,11 @@ public class SearchDeleteRecordController implements Initializable {
     private JFXButton backButton;
 
     
+    @FXML
+    private JFXButton persistRecord;
+
+    @FXML
+    private JFXButton showDBBtn;
 
     @FXML
     void deleteButton(ActionEvent event) {
@@ -89,5 +94,15 @@ public class SearchDeleteRecordController implements Initializable {
     void backButton(ActionEvent event) {
         OptionsController.recordStage.close();
     }    
+    
+        @FXML
+    void PersistRecord(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ShowDBRecord(ActionEvent event) {
+
+    }
     
 }

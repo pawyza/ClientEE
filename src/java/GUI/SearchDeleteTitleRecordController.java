@@ -81,6 +81,12 @@ public class SearchDeleteTitleRecordController implements Initializable {
     @FXML
     private JFXButton backButton;
 
+        @FXML
+    private JFXButton persistBtn;
+
+    @FXML
+    private JFXButton showDBtrBtn;
+    
     @FXML
     void deleteButton(ActionEvent event) {
         int selIndex = TitleRecordTable.getSelectionModel().getSelectedIndex();
@@ -99,6 +105,16 @@ public class SearchDeleteTitleRecordController implements Initializable {
     @FXML
     void backButton(ActionEvent event) {
         OptionsController.recordStage.close();
+    }
+    
+        @FXML
+    void PersistTitleRecord(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ShowDBTitlteRecord(ActionEvent event) {
+
     }
 
 }
