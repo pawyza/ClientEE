@@ -88,7 +88,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setTitle("Rental");
+        stage.setTitle("Client");
         stage.setResizable(false);
         this.recordStage = stage;
     }
@@ -115,7 +115,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setTitle("Rental");
+        stage.setTitle("Reservation");
         stage.setResizable(false);
         this.recordStage = stage;
     }
@@ -144,7 +144,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setTitle("Rental");
+        stage.setTitle("Title record");
         stage.setResizable(false);
         this.recordStage = stage;
 
@@ -158,7 +158,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setTitle("Rental");
+        stage.setTitle("Client");
         stage.setResizable(false);
         this.recordStage = stage;
     }
@@ -170,7 +170,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setTitle("Rental");
+        stage.setTitle("Record");
         stage.setResizable(false);
         this.recordStage = stage;
 
@@ -183,7 +183,7 @@ public class OptionsController extends JPanel implements ActionListener, Initial
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-        stage.setTitle("Rental");
+        stage.setTitle("Reservation");
         stage.setResizable(false);
         this.recordStage = stage;
 

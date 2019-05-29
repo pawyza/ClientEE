@@ -29,7 +29,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client login:" wrappingWidth="74.13671684265137" />
                   <TextField fx:id="loginOfClient" onAction="#recordOnAction" prefHeight="26.0" prefWidth="109.0" promptText="Number" text="Login" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client password:" wrappingWidth="98.93671226501465" />
-                  <TextField fx:id="passwordOfClient" onAction="#recordOnAction" promptText="Number" text="Card Number" />
+                  <TextField fx:id="passwordOfClient" onAction="#recordOnAction" promptText="Number" text="Password" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" spacing="20.0">
