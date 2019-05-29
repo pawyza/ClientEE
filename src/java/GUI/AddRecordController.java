@@ -37,16 +37,14 @@ public class AddRecordController implements Initializable {
     @FXML
     private Text infoField;
 
+    private String[] titleRecordHelper;
+    
     @FXML
     void on_Add(ActionEvent event) {
-        String number1;
-        String number2;
-                
-            int selectedIndex = titleRecordBox.getSelectionModel().getSelectedIndex();
-            number1 = Integer.toString(0);
-            number2 = recordField.getText();
-            String data[] = {number1,number2};
-            infoField.setText("Dodano Record z danymi " + titleRecordBox.getValue().toString() + "  Record number: " + number2);
+        String data2[] = {"0",recordField.getText()};
+        Main.getFacade().addRecord(titleRecordHelper, data2);
+        infoField.setText("Dodano Record z danymi " + titleRecordBox.getValue().toString() + "  Record number: " + data2[1]);
+
         }
     
     
@@ -64,4 +62,23 @@ public class AddRecordController implements Initializable {
          ObservableList<TitleRecordM> list = FXCollections.observableArrayList(listHelper);
         titleRecordBox.setItems(list);
     }
+    
+        @FXML
+    private void recordOnAction(ActionEvent event) {
+
+        TitleRecordM help = titleRecordBox.getSelectionModel().getSelectedItem();
+        
+        String type;
+        if(help.getGenre() == null){
+            type = "2";
+        }else if(help.getGenre() == null && help.getCast() == null){
+            type="1";
+        }else if(help.getAuthor() == null && help.getGenre() == null && help.getCast() == null){
+            type="0";
+        }else{
+            type="3";
+        }
+        titleRecordHelper = new String[]{type, help.getId(), help.getTitle(), help.getAuthor(), help.getCast(), help.getGenre()};
+    }
+
 }
