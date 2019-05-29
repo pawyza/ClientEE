@@ -36,14 +36,15 @@ public class AddRecordController implements Initializable {
 
     @FXML
     private Text infoField;
-    
-    private String[] titleRecordHelper;
 
+    private String[] titleRecordHelper;
+    
     @FXML
     void on_Add(ActionEvent event) {
-        String data2[] = {recordField.getText()};
+        String data2[] = {"0",recordField.getText()};
         Main.getFacade().addRecord(titleRecordHelper, data2);
-        infoField.setText("Dodano Record z danymi " + titleRecordBox.getValue().toString() + "  Record number: " + data2);
+        infoField.setText("Dodano Record z danymi " + titleRecordBox.getValue().toString() + "  Record number: " + data2[1]);
+
         }
     
     
@@ -62,10 +63,11 @@ public class AddRecordController implements Initializable {
         titleRecordBox.setItems(list);
     }
     
-    @FXML
-    void recordOnAction(ActionEvent event) {
+        @FXML
+    private void recordOnAction(ActionEvent event) {
+
         TitleRecordM help = titleRecordBox.getSelectionModel().getSelectedItem();
-        System.out.println("");
+        
         String type;
         if(help.getGenre() == null){
             type = "2";
@@ -78,4 +80,5 @@ public class AddRecordController implements Initializable {
         }
         titleRecordHelper = new String[]{type, help.getId(), help.getTitle(), help.getAuthor(), help.getCast(), help.getGenre()};
     }
+
 }

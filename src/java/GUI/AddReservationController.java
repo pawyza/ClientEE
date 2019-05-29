@@ -111,7 +111,6 @@ public class AddReservationController implements Initializable {
             type="3";
         }
         titleRecordHelper = new String[]{type, help.getId(), help.getTitle(), help.getAuthor(), help.getCast(), help.getGenre()};
-
     }
 
     @FXML
