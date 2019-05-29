@@ -39,7 +39,6 @@ public class AddReservationController implements Initializable {
     @FXML
     void btn_OK_OnAction(ActionEvent event) {
 
-        OptionsController.recordStage.close();
         Main.getFacade().addReservation(titleRecordHelper, clientHelper, Integer.parseInt(numberOfReservation.getText()),
                 datePicker_Begin.getValue(), datePicker_End.getValue());
 

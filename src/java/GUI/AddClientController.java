@@ -45,7 +45,6 @@ public class AddClientController implements Initializable {
         data[0] = cardNumberOfClient.getText();
         data[1] = loginOfClient.getText();
         data[3] = passwordOfClient.getText();
-        OptionsController.recordStage.close();
         Main.getFacade().addClient(data);
         
     }
