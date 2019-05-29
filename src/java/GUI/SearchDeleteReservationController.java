@@ -109,6 +109,7 @@ public class SearchDeleteReservationController implements Initializable {
     void backButton(ActionEvent event) {
         OptionsController.recordStage.close();
     }
+    
     @FXML
     void PersistReservation(ActionEvent event) {
         try {
