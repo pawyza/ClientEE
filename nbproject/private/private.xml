@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/AddClientController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/MainController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/addRecord.fxml</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/nbproject/build-impl.xml</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/AddTitleRecordController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/OptionsController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/SearchDeleteReservationController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/AddRecordController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/AddReservationController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/searchDeleteClients.fxml</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/SearchDeleteClients.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/SearchDeleteRecordController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/SearchDeleteTitleRecordController.java</file>
+            <file>file:/D:/InzynieriaOprogramowania/RentalClientEE/ClientEE/src/java/GUI/addClient.fxml</file>
+        </group>
+    </open-files>
 </project-private>

@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import com.jfoenix.controls.JFXTextField;
+import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,28 +17,27 @@ import javafx.fxml.Initializable;
  *
  * @author kamil
  */
-public class AddClientController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+public class AddClientController implements Initializable {
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
-       String data[] = new String[4];
-        @FXML
-    private JFXTextField idOfClient;
+    String data[] = new String[4];
+    
+    @FXML
+    private TextField idOfClient;
 
     @FXML
-    private JFXTextField cardNumberOfClient;
+    private TextField cardNumberOfClient;
 
     @FXML
-    private JFXTextField loginOfClient;
+    private TextField loginOfClient;
 
     @FXML
-    private JFXTextField passwordOfClient;
+    private TextField passwordOfClient;
 
     @FXML
     void btn_OK_OnAction(ActionEvent event) {
